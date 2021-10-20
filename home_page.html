@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+ <html>
+ 	<head>
+          <link rel="stylesheet" href="home.css">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 		<meta charset="UTF-8">
+ 		<title>Nome da Loja</title>
+ 	</head>
+
+ 	<body>
+          <header class="header">
+               <div class="home-center">
+                    <div class="chama-funcao">
+                         <h1 class="chama-funcao_titulo">Entrar</h1>
+                         <p class="chama-funcao_descricao">Cadastre-se agora e receba ofertas exclusivas por email !</p>
+                         <button class="chama-funcao_botao" type="button">Entrar</button>
+                         <div class="divider"/></div>
+                         <button class="chama-funcao_botao" type="button">Cadastrar</button>
+                    </div>
+               </div>
+          </header>
+
+          <div class="barra barra-bg">
+               <div class="barra_conteudo home-center">
+                    <img class="barra_logo" src="../Discosborda.png" alt="utfpr logo">
+                    <input type="checkbox" id="inpNavMenu">
+                    <label class="barra_navegarMenu" for="inpNavMenu">
+                         <i class="material-icons">menu</i>
+                    </label>
+                    <nav class="nav">
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_01/secundaria.html">Produtos</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_01/secundaria.html">Pedidos</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_01/secundaria.html">Administração</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_01/secundaria.html">Contato</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_01/secundaria.html">Sobre</a>
+                    </nav>
+               </div>
+          </div>
+
+          <main class="home-center" style="padding: 30px; font-weight: 500;">
+               <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+               </p>
+          </main>
+
+          <script>
+               document.addEventListener("DOMContentLoaded", () => {
+                    const observer = new IntersectionObserver(entries => {
+                         /* Quando puxa scroll para baixo => muda cor do header*/
+                         document.querySelector(".barra").classList.toggle("barra-bg", entries[0].intersectionRatio < 0.9);
+                    }, {
+                         threshold: 0.9
+                    });
+
+                    observer.observe(document.querySelector(".header"));
+               });
+          </script>
+          
+ 	</body>
+ </html>
