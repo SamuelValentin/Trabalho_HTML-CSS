@@ -4,6 +4,40 @@
      --corSecundaria: #FFFFFF;
 }
 
+.alinharRotulos {
+     text-align: right;
+ }
+ .alinhaBtns {
+     width:30%;
+     background-color: black;
+     color:white;
+     border:0px;
+     padding:5px;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+ .carrinho {
+     width:300px; 
+     float:right;
+ }
+ .carrinho p {
+     display: inline;
+ }
+ table {
+     clear:both; 
+     background-color: rgba(77, 77, 77, 0.2);
+     border-radius: 10px; 
+     color:white;
+     padding:10px;
+     width:400px;
+     margin:auto;
+ }
+ caption {
+     color:rgb(20, 20, 20); 
+     font-weight: bold; 
+     font-size: 25px;
+ }
+
 /* -----------------------------[DIVISÃO]----------------------------------*/
 .header {
      height: 100vh;
@@ -34,7 +68,7 @@ body {
      padding: 32px;
      box-sizing: border-box;
      color: #ffffff;
-     background-color: grey;
+     background-color: rgb(134, 134, 134, 0.2);
      border-radius: 16px;
 }
 .chama-funcao_titulo {
@@ -154,4 +188,89 @@ Caso contrário ele irá mostrar as opções direto no header
           margin-right: 24px;
      }
 
+}
+
+/* -----------------------------[CONTATO-PAGE]----------------------------------*/
+.contato-header {
+     height: 100vh;
+     background: linear-gradient(to bottom right, var(--corPrimaria), var(--corSecundaria));
+     display: flex;
+     align-items: flex-start;
+     box-sizing: border-box;
+     padding-top: 15vh;
+}
+.contato-center {
+     width: 100%;
+     max-width: 90vw;
+     /*margin-left: 20vw;*/
+     margin: 0 10vw;
+     text-align: center;
+     /*box-sizing: border-box;*/
+}
+.contato-center-margin {
+     width: 100%;
+     max-width: 90vw;
+     /*margin-left: 20vw;*/
+     text-align: center;
+}
+
+.contato-titulo {
+     font-size: 4vw;
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: rgb(29, 29, 29);
+}
+.contato-subtitulo {
+     font-size: 1.5vw;
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: rgb(29, 29, 29);
+}
+.contato-texto {
+     font-size: 1vw;
+     -webkit-text-stroke-width: 0.5px;
+     -webkit-text-stroke-color: rgb(29, 29, 29);
+}
+.contato-hr {
+     width: 100%;
+     border-color: #5D5D5D;
+}
+
+/* -----------------------------[SOBRE-PAGE]----------------------------------*/
+.sobre-header {
+     height: 100vh;
+     background: linear-gradient(to bottom right, var(--corPrimaria), var(--corSecundaria));
+     display: flex;
+     align-items: flex-start;
+     box-sizing: border-box;
+     padding-top: 15vh;
+}
+
+.sobre-center {
+     width: 100%;
+     max-width: 90vw;
+     /*margin-left: 20vw;*/
+     margin: 2vh 10vw;
+     padding: 16px;
+     /*box-sizing: border-box;*/
+}
+.sobre-center-margin {
+     width: 80%;
+     max-width: 90vw;
+     /*margin-left: 20vw;*/
+     padding-left: 1vw;
+}
+
+.sobre-titulo {
+     font-size: 5vw;
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: rgb(29, 29, 29);
+}
+.sobre-subtitulo {
+     font-size: 2vw;
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: rgb(29, 29, 29);
+}
+.sobre-texto {
+     font-size: 1.5vw;
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: rgb(29, 29, 29);
 }
