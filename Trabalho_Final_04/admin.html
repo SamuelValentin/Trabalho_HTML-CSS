@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+ <html>
+ 	<head>
+          <link rel="stylesheet" href="home.css">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 		<meta charset="UTF-8">
+           <script language="JavaScript" src="js/funcoes.js"></script>
+           
+ 		<title>Nome da Loja</title>
+ 	</head>
+
+ 	<body>
+          <header class="header">
+               <div class="home-center">
+                    <!--<img src="img/carrossel_02.png" alt="img"> -->
+                    <form>
+                         <table>
+                             <caption>Cadastro de novos produtos</caption>
+                             <!--Nome do produto-->
+                             <tr>
+                                 <td class="alinharRotulos">Nome do produto:</td>
+                                 <td><input id="txtNomeProduto" type="text"></td>
+                             </tr>
+                             <!--Código do produto-->
+                             <tr>
+                                 <td class="alinharRotulos">Código do produto:</td>
+                                 <td><input id="txtCodProduto" type="text"></td>
+                             </tr>
+                             <tr>
+                                   <td class="alinharRotulos">Valor do Produto:</td>
+                                   <td><input id="" type="number"></td>
+                              </tr>
+                             <!--Quantidade do produto-->
+                             <tr>
+                                 <td class="alinharRotulos">Quantidade do produto:</td>
+                                 <td>
+                                     <select id="qtidadeProduto">
+                                         <option value="1">1</option>
+                                         <option value="2">2</option>
+                                         <option value="3">3</option>
+                                         <option value="4">4</option>
+                                         <option value="5">5</option>
+                                         <option value="6">6</option>
+                                         <option value="7">7</option>
+                                         <option value="8">8</option>
+                                         <option value="9">9</option>
+                                         <option value="10">10</option>
+                                     </select>
+                                 </td>
+                             </tr>
+                             <!--Botoes-->
+                             <tr>
+                                 <td colspan="2" align="center">
+                                     <input type="button" value="Cadastrar" class="alinhaBtns" onclick="validarProduto('txtNomeProduto','txtCodProduto','qtidadeProduto')">
+                                     <input type="button" value="Ver estoque" class="alinhaBtns" onclick="window.open('verEstoque.html','_self')">
+                                     <input type="reset" value="Limpar" class="alinhaBtns">
+                                 </td>
+                             </tr>
+                         </table>
+                     </form>
+               </div>
+          </header>
+
+          <div class="barra barra-bg">
+               <div class="barra_conteudo home-center">
+                    <a href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_02/home_page.html"><img class="barra_logo" src="img/Discosborda.png" alt="utfpr logo"></a>
+                    <input type="checkbox" id="inpNavMenu">
+                    <label class="barra_navegarMenu" for="inpNavMenu">
+                         <i class="material-icons">menu</i>
+                    </label>
+                    <nav class="nav">
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_03/pages/produtos_page.html">Produtos</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_03/pages/secundaria.html">Pedidos</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_03/pages/secundaria.html">Administração</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_03/pages/contato_page.html">Contato</a>
+                         <a class="nav_link" href="file:///F:/johny/My/_UTFPR/z_Periodo_Atual/HTML_CSS/Trabalho_Final_03/pages/sobre_page.html">Sobre</a>
+                    </nav>
+               </div>
+          </div>
+
+          <main class="home-center" style="padding: 30px; font-weight: 500;">
+               <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+               </p>
+          </main>
+
+          <script>
+               document.addEventListener("DOMContentLoaded", () => {
+                    const observer = new IntersectionObserver(entries => {
+                         /* Quando puxa scroll para baixo => muda cor do header*/
+                         document.querySelector(".barra").classList.toggle("barra-bg", entries[0].intersectionRatio < 0.9);
+                    }, {
+                         threshold: 0.9
+                    });
+
+                    observer.observe(document.querySelector(".header"));
+               });
+          </script>
+          
+ 	</body>
+ </html>
