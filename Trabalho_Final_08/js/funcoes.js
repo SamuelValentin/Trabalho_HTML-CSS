@@ -95,7 +95,7 @@ function carregarTotalEstoque(idCampo) {
     }
     else alert("A versão do seu navegador é muito antiga. Por isso, não será possível executar essa aplicação");
 }
-
+/* Carrinho */
 
 function listarEstoque() {
     if (typeof(Storage) !== "undefined") {
@@ -116,7 +116,25 @@ function listarEstoque() {
                 document.write("<li>Quantidade no estoque: "+produto.quantidade+"</li>");
                 document.write("</ul>");
             });
-        }
+            let btn = document.createElement("button");
+               btn.innerHTML = "Limpa Carrinho";
+               btn.type = "button";
+               btn.name = "btn_carrinho";
+               btn.classList.add("btn_carrinho");
+               /*Funcao de add no carrinho
+               btn.onclick = carrinho(id, nome); */ 
+               btn.onclick = function() {
+                    limpaCarrinho();
+               }/*carrinho(id, nome);  Eles esta pegando o ultimo id listado, precisa pegar o id certo de cada botao e seu respectivo produto */
+               document.body.appendChild(btn);
+               div.appendChild(btn);
+    
+            }
     } 
     else alert("A versão do seu navegador é muito antiga. Por isso, não será possível visualizar o estoque!");    
+}
+
+function limpaCarrinho(){
+    alert("Limpo");
+    localStorage.clear("produtos");
 }
