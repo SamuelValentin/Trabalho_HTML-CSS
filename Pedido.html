@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <script src="js/funcoes.js"></script>
+    <title>Nome da Loja</title>
+</head>
+
+<body>
+    <header class="header" >
+        <div class="home-center">
+            <!--<img src="img/carrossel_02.png" alt="img"> -->
+            <form>
+                <table>
+                    <caption>Finalizar Pedido</caption>
+                    <!--Nome-->
+                    <tr>
+                        <td class="alinharRotulos">Nome do Cliente:</td>
+                        <td><input id="nomeCliente" type="text" placeholder="José da Silva"></td>
+                    </tr>
+                    <!--CPF-->
+                    <tr>
+                        <td class="alinharRotulos">CPF:</td>
+                        <td><input id="CPF" type="text" placeholder="123.456.789-10" maxlength="14" onkeyup="mascCpf()"></td>
+                    </tr>
+                    <!--CEP-->
+                    <tr>
+                        <td class="alinharRotulos">CEP:</td>
+                        <td><input id="CEP" type="text" placeholder="00.000-000" onblur="pesquisacep(this.value)" onkeyup="mascCep()"></td>
+                    </tr>
+                    <!--Rua-->
+                    <tr>
+                        <td class="alinharRotulos">Rua:</td>
+                        <td><input id="rua" type="text" placeholder=""></td>
+                    </tr>
+                    <!--Numero-->
+                    <tr>
+                        <td class="alinharRotulos">Nº:</td>
+                        <td><input id="NumCliente" type="text"></td>
+                    </tr>
+                    <!--Complemento-->
+                    <tr>
+                        <td class="alinharRotulos">Complemento:</td>
+                        <td><input id="ComplementoCliente" type="text" placeholder="ex. (apto, casa, terreno)"></td>
+                    </tr>
+                    <!--Bairro-->
+                    <tr>
+                        <td class="alinharRotulos">Bairro:</td>
+                        <td><input id="bairro" type="text"></td>
+                    </tr>
+                    <!--Cidade-->
+                    <tr>
+                        <td class="alinharRotulos">Cidade:</td>
+                        <td><input id="cidade" type="text"></td>
+                    </tr>
+                    <!--Estado (UF)-->
+                    <tr>
+                        <td class="alinharRotulos">UF:</td>
+                        <td><input id="uf" type="text"></td>
+                    </tr>
+
+                    <!--Botoes-->
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="button" value="Finalizar" class="alinhaBtns">
+                            <input type="button" value="Carrinho" class="alinhaBtns">
+                            <input type="reset" value="Limpar" class="alinhaBtns">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </header>
+
+    <div class="barra barra-bg">
+        <div class="barra_conteudo home-center">
+            <a href="index.html"><img class="barra_logo" src="img/Discosborda.png" alt="utfpr logo"></a>
+            <input type="checkbox" id="inpNavMenu">
+            <label class="barra_navegarMenu" for="inpNavMenu">
+                <i class="material-icons">menu</i>
+            </label>
+            <nav class="nav">
+                <a class="nav_link" href="pages/produtos_page.html">Produtos</a>
+                <a class="nav_link" href="pages/secundaria.html">Pedidos</a>
+                <a class="nav_link" href="admin.html">Administração</a>
+                <a class="nav_link" href="pages/contato_page.html">Contato</a>
+                <a class="nav_link" href="pages/sobre_page.html">Sobre</a>
+            </nav>
+        </div>
+    </div>
+        <div class="barra barra-bg" onload="listarProdutosCarrinho()">
+            <div class="barra_conteudo home-center">
+                <a href="index.html"><img class="barra_logo" src="img/Discosborda.png" alt="utfpr logo"></a>
+                <input type="checkbox" id="inpNavMenu">
+                <label class="barra_navegarMenu" for="inpNavMenu">
+                    <i class="material-icons">menu</i>
+                </label>
+                <nav class="nav">
+                    <a class="nav_link" href="pages/produtos_page.html">Produtos</a>
+                    <a class="nav_link" href="pages/secundaria.html">Pedidos</a>
+                    <a class="nav_link" href="admin.html">Administração</a>
+                    <a class="nav_link" href="pages/contato_page.html">Contato</a>
+                    <a class="nav_link" href="pages/sobre_page.html">Sobre</a>
+                </nav>
+            </div>
+        </div>
+
+        <main class="home-center" style="padding: 30px; font-weight: 500;">
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+        </main>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const observer = new IntersectionObserver(entries => {
+                    /* Quando puxa scroll para baixo => muda cor do header*/
+                    document.querySelector(".barra").classList.toggle("barra-bg", entries[0].intersectionRatio < 0.9);
+                }, {
+                    threshold: 0.9
+                });
+
+                observer.observe(document.querySelector(".header"));
+            });
+        </script>
+
+    </body>
+</html>
