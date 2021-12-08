@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+ <html>
+
+ 	<head>
+          <link rel="stylesheet" href="home.css">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 		<meta charset="UTF-8">
+           <script src="js/funcoes.js"></script>
+           <script src="js/home.js" type="text/javascript"></script>
+ 		<title>Nome da Loja</title>
+         <script>
+         categorias();
+        </script>
+ 	</head>
+
+ 	<body>
+          <header class="header">
+               <div class="home-center">
+                    <!--<img src="img/carrossel_02.png" alt="img"> -->
+                   <form>
+                       <br><br><br><br><br>
+                       <table>
+                           <caption>Cadastro de novos produtos</caption>
+                           <!--ID da categoria-->
+                           <tr>
+                               <td class="alinharRotulos">Categoria:</td>
+                               <td>               
+                                   <select id="categoria" name="categoria"> 
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="547">547</option>
+                                    <option value="572">572</option>
+                                    <option value="573">573</option>
+                                    <option value="574">574</option>
+                                    <option value="575">575</option>                        
+                           </select>
+                           </td>
+                           </tr>
+                           <!--Nome do produto-->
+                           <tr>
+                               <td class="alinharRotulos">Nome do produto:</td>
+                               <td><input id="txtNomeProduto" type="text"></td>
+                           </tr>
+                           <!--Código do produto-->
+                           <tr>
+                               <td class="alinharRotulos">Código do produto:</td>
+                               <td><input id="txtCodProduto" type="text"></td>
+                           </tr>
+                           <!--Descrição do produto-->
+                           <tr>
+                               <td class="alinharRotulos">Descrição do produto:</td>
+                               <td><input id="txtDescricao" type="text"></td>
+                           </tr>
+                           <!--Preço do produto-->
+                           <tr>
+                               <td class="alinharRotulos">Preço do Produto:</td>
+                               <td><input id="intPreco" type="number"></td>
+                           </tr>
+                           <!--Peso do produto-->
+                           <tr>
+                               <td class="alinharRotulos">Peso do Produto:</td>
+                               <td><input id="intPeso" type="number"></td>
+                           </tr>
+                           <!--Imagem do produto-->
+                           <tr>
+                              <td class="alinharRotulos">Imagem do Produto:</td>
+                              <td><input id="txtImagem" type="text"></td>
+                          </tr>
+                           <!--Quantidade do produto-->
+                           <tr>
+                               <td class="alinharRotulos">Quantidade do produto:</td>
+                               <td>
+                                   <select id="qtidadeProduto">
+                                       <option value="1">1</option>
+                                       <option value="2">2</option>
+                                       <option value="3">3</option>
+                                       <option value="4">4</option>
+                                       <option value="5">5</option>
+                                       <option value="6">6</option>
+                                       <option value="7">7</option>
+                                       <option value="8">8</option>
+                                       <option value="9">9</option>
+                                       <option value="10">10</option>
+                                   </select>
+                               </td>
+                           </tr>
+                           <!--Botoes-->
+                           <tr>
+                               <td colspan="2" align="center">
+                                   <input type="button" value="Cadastrar" class="alinhaBtns" onclick="validarProduto('categoria','txtNomeProduto','txtCodProduto', 'txtDescricao', 'intPreco', 'intPeso', 'txtImagem', 'qtidadeProduto')">
+                                   <input type="button" value="Ver estoque" class="alinhaBtns" onclick="window.open('verEstoque.html','_self')">
+                                   <input type="reset" value="Limpar" class="alinhaBtns">
+                               </td>
+                           </tr>
+                       </table>
+                       <table>
+                           <caption>Cadastro de novas categorias</caption>
+                           <!--Nome da categoria-->
+                           <tr>
+                               <td class="alinharRotulos">Nome da categoria:</td>
+                               <td><input id="txtNomeCategoria" type="text"></td>
+                           </tr>
+                           <!--Botoes-->
+                           <tr>
+                               <td colspan="2" align="center">
+                                   <input type="button" value="Cadastrar" class="alinhaBtns" onclick="cadastrarCategoria('txtNomeCategoria')">
+                               </td>
+                           </tr>
+                       </table>
+
+                       <table>
+                        <caption>Remover Categoria</caption>
+                        <!--Nome da categoria-->
+                        <tr>
+                            <td class="alinharRotulos">ID da categoria:</td>
+                            <td><input id="txtNomeCategoriaRemover" type="text"></td>
+                        </tr>
+                        <!--Botoes-->
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="button" value="Remover" class="alinhaBtns" onclick="removerCategoria('txtNomeCategoriaRemover')">
+                            </td>
+                        </tr>
+                    </table>
+
+                       <table>
+                        <caption>Remover Produto</caption>
+                        <!--ID da categoria-->
+                        <tr>
+                            <td class="alinharRotulos">ID do Produto:</td>
+                            <td><input id="intIdProduto" type="number"></td>
+                        </tr>
+                        <!--Botoes-->
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="button" value="Remover" class="alinhaBtns" onclick="removerProduto('intIdProduto')"> 
+                            </td>
+                        </tr>
+                    </table>
+                   </form>
+               </div>
+          </header>
+
+          <div class="barra barra-bg">
+               <div class="barra_conteudo home-center">
+                    <a href="index.html"><img class="barra_logo" src="img/Discosborda.png" alt="utfpr logo"></a>
+                    <input type="checkbox" id="inpNavMenu">
+                    <label class="barra_navegarMenu" for="inpNavMenu">
+                         <i class="material-icons">menu</i>
+                    </label>
+                    <nav class="nav">
+                         <a class="nav_link" href="pages/produtos_page.html">Produtos</a>
+                         <a class="nav_link" href="pages/secundaria.html">Pedidos</a>
+                         <a class="nav_link" href="admin.html">Administração</a>
+                         <a class="nav_link" href="pages/contato_page.html">Contato</a>
+                         <a class="nav_link" href="pages/sobre_page.html">Sobre</a>
+                    </nav>
+               </div>
+          </div>
+
+          <script>
+               document.addEventListener("DOMContentLoaded", () => {
+                    const observer = new IntersectionObserver(entries => {
+                         /* Quando puxa scroll para baixo => muda cor do header*/
+                         document.querySelector(".barra").classList.toggle("barra-bg", entries[0].intersectionRatio < 0.9);
+                    }, {
+                         threshold: 0.9
+                    });
+
+                    observer.observe(document.querySelector(".header"));
+               });
+          </script>
+          
+ 	</body>
+ </html>
