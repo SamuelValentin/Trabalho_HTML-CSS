@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+ <html>
+ 	<head>
+          <link rel="stylesheet" href="home.css">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 		<meta charset="UTF-8">
+ 		<title>Nome da Loja</title>
+          <script src="js/home.js" type="text/javascript"></script>
+ 	</head>
+
+ 	<body onLoad ="initState()">
+          <header class="header">
+               <div class="home-img">
+                    <!-- carrossel com aquelas fotos promocionais -->
+                    <div class="home-text">
+                         <h1>Buiar Store</h1>
+                         <p>Clothing Store</p>
+                    </div>
+               </div>
+          </header>
+
+          <div class="barra barra-bg">
+               <div class="barra_conteudo home-center">
+                    <a href="index.html"><img class="barra_logo" src="img/Discosborda.png" alt="utfpr logo"></a>
+                    <input type="checkbox" id="inpNavMenu">
+                    <label class="barra_navegarMenu" for="inpNavMenu">
+                         <i class="material-icons">menu</i>
+                    </label>
+                    <nav class="nav">
+                         <a class="nav_link" href="pages/produtos_page.html">Produtos</a>
+                         <a class="nav_link" href="pages/secundaria.html">Pedidos</a>
+                         <a class="nav_link" href="admin.html">Administração</a>
+                         <a class="nav_link" href="pages/contato_page.html">Contato</a>
+                         <a class="nav_link" href="pages/sobre_page.html">Sobre</a>
+                    </nav>
+                    <div class="collection" id="dropable" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="abrirJanelaCarrinho()" ><!-- onclick="abrirJanelaCarrinho()"  window.open('verEstoque.html','_self') -->
+                         <span class="heading">Seu Carrinho</span><br>
+                         <div class="heading" id="itemcount"></div>
+                    </div>
+                    <div class="collection" onclick="localStorage.clear(); alert('Carrinho vazio!')"><i class="material-icons icone">remove_shopping_cart</i></div>
+                    </div>
+               </div>
+          </div>
+
+          <script>
+               document.addEventListener("DOMContentLoaded", () => {
+                    const observer = new IntersectionObserver(entries => {
+                         /* Quando puxa scroll para baixo => muda cor do header*/
+                         document.querySelector(".barra").classList.toggle("barra-bg", entries[0].intersectionRatio < 0.9);
+                    }, {
+                         threshold: 0.9
+                    });
+
+                    observer.observe(document.querySelector(".header"));
+               });
+          </script>
+          
+ 	</body>
+ </html>
+
+ 
