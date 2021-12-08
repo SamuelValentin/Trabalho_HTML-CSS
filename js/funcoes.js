@@ -1,12 +1,17 @@
 
 function validarProduto(idIdCategoria, idNomeProduto, idCodProduto, idDescricao, idPreco, idPeso, idQtidadeProduto) {
-    let idCat = document.getElementById(idIdCategoria).value;
+    let idCat = document.getElementById(idIdCategoria);
     let nome = document.getElementById(idNomeProduto).value;
     let codigo = document.getElementById(idCodProduto).value;
 	let descricao = document.getElementById(idDescricao).value;
 	let preco = document.getElementById(idPreco).value;
 	let peso = document.getElementById(idPeso).value;
     let qtidade = document.getElementById(idQtidadeProduto).value;
+
+    let cselect = document.getElementById(cat);
+
+    let categ = cselect.options[cselect.selectedIndex].value;
+    console.log("-------------------categoria------------> " + categ)
 
 	if (idCat == "")
 		alert("Id da categoria não pode estar em branco. Favor preenchê-lo!");
@@ -20,7 +25,7 @@ function validarProduto(idIdCategoria, idNomeProduto, idCodProduto, idDescricao,
         alert("Preço do produto não pode estar em branco. Favor preenchê-lo!");
 	else if (peso == "")
 		alert("Peso do produto não pode estar em branco. Favor preenchê-lo!");
-    else cadastrarProduto(idCat, nome, codigo, descricao, preco, peso, parseInt(qtidade));
+    else cadastrarProduto(categ, nome, codigo, descricao, preco, peso, parseInt(qtidade));
 }
 
 function cadastrarProduto(idCat, produto, codig, descricao, preco, peso, qtidade) {
@@ -28,7 +33,7 @@ function cadastrarProduto(idCat, produto, codig, descricao, preco, peso, qtidade
      console.log(produto)
      var xhr = new XMLHttpRequest();
 
-     let url = 'http://loja.buiar.com/?key=cZbWpEr0MD&f=json&c=produto&t=inserir&&nome='+produto+'&codigo='+codig+'&categoria=547'+'&descricao='+ descricao+'&peso='+ peso +'&preco='+preco;
+     let url = 'http://loja.buiar.com/?key=cZbWpEr0MD&f=json&c=produto&t=inserir&nome='+produto+'&codigo='+codig+'&categoria=' + categ + ' &descricao='+descricao+'&peso='+ peso +'&preco='+preco+'&imagem='+img;
 
      console.log(url)
 
