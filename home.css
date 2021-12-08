@@ -69,6 +69,7 @@ body {
      box-sizing: border-box;
      color: #ffffff;
      background-color: rgb(134, 134, 134, 0.2);
+     background-color: grey;
      border-radius: 16px;
 }
 .chama-funcao_titulo {
