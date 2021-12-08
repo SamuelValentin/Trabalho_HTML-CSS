@@ -1,10 +1,12 @@
 
 var listaProdutos;
 var itemCount = 0;
+var produtos;
 
 function initState() {//InitState do site, quando ele é carregado, eu chamo essa função
      console.log("entrou codeAddress")//Print pra saber se entrou
      puxaProdutos();//Chamando a função
+     categorias();
      console.log('END')//Print pra saber se foi até o final
 
 }
@@ -22,8 +24,7 @@ function puxaProdutos(){//Fazendo a requisição no db do professor e pegando no
 }
 
 function tratarResponse(retorno){//Recebendo a lista vindo do get e enviando para a função que irá mostra-los na tela
-     console.log(retorno)
-
+     console.log(retorno)    
      let myMap = JSON.parse(retorno);
      //console.log(myMap['dados']['length'])
      listandoProdutos(retorno)
@@ -31,13 +32,14 @@ function tratarResponse(retorno){//Recebendo a lista vindo do get e enviando par
 }
 
 function listandoProdutos(retorno) {//Construindo o body aqui pelo javascript
+     
      var body = document.getElementsByTagName('body')[0];
      var tbl = document.createElement('table');
      tbl.style.width = '30%';
      tbl.style.height = '5%';
      tbl.setAttribute('border', '1');
  
-     var produtos = JSON.parse(retorno);
+     produtos = JSON.parse(retorno);
  
      var tbdy = document.createElement('tbody');
      
@@ -115,6 +117,65 @@ function listandoProdutos(retorno) {//Construindo o body aqui pelo javascript
      body.appendChild(span)
      //tbl.appendChild(tbdy);
      //body.appendChild(tbl)
+ }
+
+
+ function categoriasResponse(retorno){
+     //console.log(retorno)
+
+     let cat = JSON.parse(retorno);
+     populaSelectCategoria(retorno);
+}
+
+ function categorias(){
+
+     let url = 'http://loja.buiar.com/?key=cZbWpEr0MD&f=json&c=categoria&t=listar&&';
+     console.log(url)    
+ 
+     var xmlHttp = new XMLHttpRequest();
+     xmlHttp.onreadystatechange = function() { 
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+          categoriasResponse(xmlHttp.responseText);
+     }
+     xmlHttp.open("GET", url, true); 
+     xmlHttp.send(null);
+     
+ }
+ 
+ function populaSelectCategoria(c) {
+     
+     var categorias = JSON.parse(c);
+    // console.log(categorias);
+
+     var ct = document.getElementById('categoria');
+     //console.log(ct);
+
+      for (var i = 0; i < categorias['dados']['length']; i++) {
+          
+          var codigo = categorias["dados"][i]["id"];
+          console.log(codigo);
+          var nome = categorias["dados"][i]["nome"];
+          console.log(nome);
+
+          ct.innerHTML = ct.innerHTML + '<option value=' + codigo + '>' + nome + '</option>';
+      }
+ }
+
+ function produtosPorCategoria(c){
+
+     var codigo = c.options[c.selectedIndex].value;
+     console.log("codig: " + codigo);
+     let url = 'http://loja.buiar.com/?key=cZbWpEr0MD&f=json&c=produto&t=listar&&categoria=' + codigo;
+     console.log(url)   
+
+     var xmlHttp = new XMLHttpRequest();
+     xmlHttp.onreadystatechange = function() { 
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+          tratarResponse(xmlHttp.responseText);
+     }
+     xmlHttp.open("GET", url, true);  
+     xmlHttp.send(null);
+
  }
 
 /** Coloca cada produto no carrinho */
@@ -213,7 +274,7 @@ function cadastrarProduto(produto, codig, qtidade) {
  }
  
  function atualizarTotalEstoque(idCampo) {
-     localStorage.setItem("totalEstoque",++document.getElementById(idCampo).innerHTML)
+     //localStorage.setItem("totalEstoque",++document.getElementById(idCampo).innerHTML)
  }
 
  function carregarTotalEstoque(idCampo) {

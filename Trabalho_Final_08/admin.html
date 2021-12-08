@@ -1,11 +1,16 @@
 <!DOCTYPE html>
  <html>
+
  	<head>
           <link rel="stylesheet" href="home.css">
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  		<meta charset="UTF-8">
            <script src="js/funcoes.js"></script>
+           <script src="js/home.js" type="text/javascript"></script>
  		<title>Nome da Loja</title>
+         <script>
+         categorias();
+        </script>
  	</head>
 
  	<body>
@@ -17,8 +22,12 @@
                            <caption>Cadastro de novos produtos</caption>
                            <!--ID da categoria-->
                            <tr>
-                               <td class="alinharRotulos">ID da categoria:</td>
-                               <td><input id="intIdCategoria" type="number"></td>
+                               <td class="alinharRotulos">Categoria:</td>
+                               <td>               
+                                   <select id="categoria" name="categoria"> 
+                                <option value="">Selecione uma categoria</option>                   
+                           </select>
+                           </td>
                            </tr>
                            <!--Nome do produto-->
                            <tr>
@@ -71,7 +80,7 @@
                            <!--Botoes-->
                            <tr>
                                <td colspan="2" align="center">
-                                   <input type="button" value="Cadastrar" class="alinhaBtns" onclick="validarProduto('intIdCategoria','txtNomeProduto','txtCodProduto', 'txtDescricao', 'intPreco', 'intPeso', 'txtImagem', 'qtidadeProduto')">
+                                   <input type="button" value="Cadastrar" class="alinhaBtns" onclick="validarProduto('categoria','txtNomeProduto','txtCodProduto', 'txtDescricao', 'intPreco', 'intPeso', 'txtImagem', 'qtidadeProduto')">
                                    <input type="button" value="Ver estoque" class="alinhaBtns" onclick="window.open('verEstoque.html','_self')">
                                    <input type="reset" value="Limpar" class="alinhaBtns">
                                </td>

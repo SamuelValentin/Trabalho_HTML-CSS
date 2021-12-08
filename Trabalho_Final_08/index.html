@@ -15,8 +15,15 @@
                     <div class="home-text">
                          <h1>Buiar Store</h1>
                          <p>Clothing Store</p>
-                    </div>
+                    </div>                   
                </div>
+
+               <div>
+               <select id="categoria" name="categoria" class="select1" onchange="produtosPorCategoria(this)"> 
+                    <option value="">Selecione uma categoria</option>                   
+               </select>
+               </div>
+
 
           <div class="barra barra-bg">
                <div class="barra_conteudo home-center">
@@ -39,7 +46,9 @@
                     <div class="collection" onclick="localStorage.clear(); alert('Carrinho vazio!')"><i class="material-icons icone">remove_shopping_cart</i></div>
                     </div>
                </div>
+               
           </div>
+          
 
           <script>
                document.addEventListener("DOMContentLoaded", () => {
