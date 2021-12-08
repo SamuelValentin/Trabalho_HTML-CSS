@@ -439,6 +439,7 @@ async function criarCarrinhoModal() {
                btnFinalizar.innerHTML = "Finalizar Compra";
                btnFinalizar.type = "button";
                btnFinalizar.name = "btnFinalizar";
+               btnFinalizar.setAttribute('onclick','window.open("Pedido.html","_self")');
                btnFinalizar.classList.add("btnFinalizar");
 
 
