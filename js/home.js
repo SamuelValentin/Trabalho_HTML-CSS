@@ -2,6 +2,7 @@
 var listaProdutos;
 var itemCount = 0;
 var produtos;
+var body;
 
 function initState() {//InitState do site, quando ele é carregado, eu chamo essa função
      console.log("entrou codeAddress")//Print pra saber se entrou
@@ -52,7 +53,7 @@ function listandoProdutos(retorno) {//Construindo o body aqui pelo javascript
      //let cselect = document.getElementById(categoria);
      //let ctg = cselect.options[cselect.selectedIndex].value;
 
-     var body = document.getElementsByTagName('body')[0];
+     body = document.getElementsByTagName('body')[0];
      var tbl = document.createElement('table');
      tbl.style.width = '30%';
      tbl.style.height = '5%';
@@ -343,17 +344,13 @@ function cadastrarProduto(produto, codig, qtidade) {
 }
 
 function mostraCategorias(retorno, idCategoria) {
-     var body = document.getElementsByTagName('body')[0];
-     
-     var removeCard = document.querySelector('card');
-     while (removeCard) {
-          removeCard.parentNode.removeChild(removeCard);
-        //  removeCard = document.getElementById('xyz');
-     }
+     body = document.getElementsByTagName('body')[0];
 
-     produtos = JSON.parse(retorno);
+     removeCriancasNos();
+
+     var produtos = JSON.parse(retorno);
      
-     let span = document.createElement('span');
+     let span = document.createElement('span');    
      for (var i = 0; i < produtos['dados']['length']; i++) {
           var id = produtos["dados"][i]["id"];
           var codigo = produtos["dados"][i]["codigo"];
@@ -365,6 +362,14 @@ function mostraCategorias(retorno, idCategoria) {
           var peso = produtos["dados"][i]["peso"];
     
           let divs = document.createElement('div');
+          /*if(categoria != idCategoria){  
+               span.style.display = 'none';
+               console.log('A categoria é diferente ' + categoria + "/ " + idCategoria + " " + nome); 
+               //divs = document.createElement('div');
+          }else{*/ 
+          
+          span.id=""+id;
+          let sid = span.id;
           divs.classList.add('card');
           divs.setAttribute('draggable', 'true');
           divs.setAttribute('ondragstart', 'drag(event)');
@@ -406,33 +411,44 @@ function mostraCategorias(retorno, idCategoria) {
           btn.setAttribute('onClick', 'btnAdicionarProduto(this.id)');
           divs.appendChild(btn);
 
-          if(categoria != idCategoria){  
-               //span.style.display = 'none';
-               span.style.display = 'none';
-               console.log('A categoria é diferente ' + categoria + " " + idCategoria + " " + nome);  
-          }else{
-               //span.style.display = 'inline-block';
-               var hcat = document.createElement("H2");
-               var tcat = document.createTextNode('Categoria ' + categoria);
-               hcat.appendChild(tcat);
-               divs.appendChild(hcat);
-               span.style.display = 'inline-block';   
-               console.log('A categoria é igual ' + categoria + " " + idCategoria + " " + nome);      
 
-          } 
+          if(categoria == idCategoria){  
+             
+               var p = document.createElement("p");
+               var t = document.createTextNode('R$ ' + preco);
+               p.appendChild(t);
+               divs.appendChild(p);
+               span.style.display = 'block';
+               console.log('A categoria é == ' + categoria + "/ " + idCategoria + " " + nome); 
 
+                if(i % 3 == 4 && i != 0){
+                    //document.body.appendChild(span)
+                    //body.appendChild(span)
+                    span.appendChild(divs);
+               } else {                    
+                    span.appendChild(divs);
+               }  
+
+          }else{  
+               span.style.display = 'collapse';              
+               console.log('A categoria é <> ' + categoria + "/ " + idCategoria + " " + nome);               
+          }     
           
-          if(i % 3 == 0 && i != 0){
-               //document.body.appendChild(span)
-               body.appendChild(span)
-               span.appendChild(divs);
-          } else {
-               
-               span.appendChild(divs);
-          }
-     }
-     
-     body.appendChild(span);
+          body.appendChild(span);
 
+     
+     }
 }
  
+function removeCriancasNos() {
+          var divs = document.getElementsByTagName("span");
+      
+          if (divs.length) {
+              divs[0].parentNode.removeChild(divs[0]);
+          } else {
+              var div = document.createElement("span");
+              div.innerHTML = outMsg;
+      
+              this.appendChild(div);
+          }
+      }
