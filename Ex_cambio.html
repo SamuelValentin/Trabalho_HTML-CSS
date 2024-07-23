@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="cambio.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cambio</title>
+	<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8NUy2CDprkvvpeeHAWMX3XQRmcUZYJsYgqEpJBkg_iiLXByIWr8v0FYlng5VWIBLFJ_Iu7GXvXdBjlKY3pTntvItTwdr1M_ciwWdB3faZHwY-57NImu65KltN6yI-StwsiW7Wo2X0hBkz7ZBg87fpg" charset="UTF-8"></script>
+</head>
+	<body id="body">
+
+
+		<header>
+			<div class="cabecario">
+	        	<img class="logo" src="logo2.png">
+	        	<h1>Cotação em tempo real</h1> 
+	        	<p>Acompanhe a cotacao atual</p>  
+			</div>
+		</header>
+
+		<div class="teste">
+			<script src="Ex_cambio.js"></script>
+				<!--calendario-->
+				<label for="ini">Data de Inicio: </label>
+				<input type="date" id="dataInit" name="inicio">
+				<label for="fim">Data Final: </label>
+				<input type="date" id="dataEnd" name="final">
+			<br>
+				<input type='checkbox' class="check" id="moeda" name="moeda" value="USD">Dolar
+			<br>
+				<input type='checkbox' class="check" id="moeda" name="moeda" value="EUR">Euro
+			<br>
+				<input type='checkbox' class="check" id="moeda" name="moeda" value="GBP">Libra Esterlina
+			<br>
+			<br>
+				<button onClick='tableCreate()'>Mostrar Gráfico</button>
+				<button onClick='pegandoDados()'>Mostrar Tabela</button>
+			<br>
+			<br>
+			<br>
+			<div id="resultado">
+			</div>
+		</div>
+	
+	
+	</body>
+	<bottom>
+
+	</bottom>
+</html>
